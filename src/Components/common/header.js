@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import {
     MobileOutlined,
@@ -6,10 +6,23 @@ import {
     FacebookFilled,
     InstagramFilled,
     YoutubeFilled,
-    UserOutlined
+    UserOutlined,
+    MenuOutlined
   } from '@ant-design/icons';
 
+import { Button, Drawer } from 'antd';
+
 function AppHeader() {
+
+    const [open, setOpen] = useState(false);
+
+    const showDrawer = () => {
+      setOpen(true);
+    };
+    const onClose = () => {
+      setOpen(false);
+    };
+    
   return (
     <div className='container'>
         {/* topbar */}
@@ -45,7 +58,26 @@ function AppHeader() {
         <div className='header separator'>
             <div className='logo'>Educate, Invest and more...</div>
 
-            <nav>
+            {/* Show on mobile */}
+            <div className='mobileVisible'>
+                <Button type="primary" onClick={showDrawer}>
+                    <MenuOutlined />
+                </Button>
+                <Drawer title="Basic Drawer" placement="right" onClose={onClose} open={open}>
+                    <nav>
+                        <ul>
+                            <li><NavLink onClick={onClose} to={'/'}>Home</NavLink></li>
+                            <li><NavLink onClick={onClose} to={'/about'}>About</NavLink></li>
+                            <li><NavLink onClick={onClose} to={'/courses'}>Courses</NavLink></li>
+                            <li><NavLink onClick={onClose} to={'/openAccount'}>Open Account</NavLink></li>
+                            <li><NavLink onClick={onClose} to={'/faq'}>FAQs</NavLink></li>
+                        </ul>
+                    </nav>
+                </Drawer>
+            </div>
+
+            {/* Show on wide screen */}
+            <nav className='mobileHidden'>
                 <ul>
                     <li><NavLink to={'/'}>Home</NavLink></li>
                     <li><NavLink to={'/about'}>About</NavLink></li>
