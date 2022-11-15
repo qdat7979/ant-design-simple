@@ -28,7 +28,7 @@ function Topbrands() {
             {
                 products.map(product => {
                     return (
-                        <Col sm={6} key={product.key}>
+                        <Col xs={6} sm={6} key={product.key}>
                             <div className='content'>
                                 <div className='image'>
                                     <img src={product.image} alt="brands"/>

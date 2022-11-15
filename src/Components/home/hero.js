@@ -9,9 +9,9 @@ function Hero() {
     console.log(Row)
   return (
     <div className='heroBlock'>
-        <Row gutter={24}>
+        <Row gutter={[24, 24]}>
             {/* carousel */}
-            <Col lg={16}>
+            <Col xs={24} lg={16}>
             <Carousel autoplay={true}>
                 <div>
                     <img src={image1} alt="banner1"/>
@@ -26,7 +26,7 @@ function Hero() {
             </Col>
 
             {/* Information block */}
-            <Col lg={8}>
+            <Col xs={24} lg={8}>
             <div className='heroBlocks'>
                 <div className='holder'>
                     <div className='icon'>

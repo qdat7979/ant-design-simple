@@ -72,7 +72,7 @@ function ProductCategories() {
             {
                 productCategories.map(product => {
                     return (
-                        <Col lg={4} key={product.key}>
+                        <Col xs={8} sm={8} md={6} lg={4} key={product.key}>
                             <div className='content'>
                                 <div className='image'>
                                     <img src={product.image} alt="product categories"/>

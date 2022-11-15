@@ -6,8 +6,8 @@ import bgImage2 from '../../assets/images/ad-img2.png';
 function Information() {
   return (
     <div className='block informationBlock'>
-        <Row gutter={24}>
-            <Col md={12}> 
+        <Row gutter={[24, 24]}>
+            <Col xs={24} sm={24} md={12}> 
                 <div className='holder' style={{
                     backgroundImage:`url(${bgImage1})`,
                     backgroundRepeat: 'no-repeat'
@@ -16,7 +16,7 @@ function Information() {
                     <div className='price'>60p</div>
                 </div>
             </Col>
-            <Col md={12}> 
+            <Col xs={24} sm={24} md={12}> 
                 <div className='holder' style={{
                     backgroundImage:`url(${bgImage2})`,
                     backgroundRepeat: 'no-repeat'

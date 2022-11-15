@@ -1,7 +1,19 @@
 import React from 'react';
-import { Button, Form, Input, InputNumber, Checkbox } from 'antd';
+import { Button, Form, Input, Select } from 'antd';
 
-function OpenAccount() {
+const { Option } = Select;
+const { TextArea } = Input;
+
+const prefixSelector = (
+  <Form.Item name="prefix" noStyle>
+    <Select style={{ width: 70 }}>
+      <Option value="86">+86</Option>
+      <Option value="87">+87</Option>
+    </Select>
+  </Form.Item>
+);
+
+function OpenAccount() { 
   return (
     <div className='block contactPage'>
       <div className='container'>
@@ -12,6 +24,8 @@ function OpenAccount() {
             remember: true,
           }}
           autoComplete="off"
+          layout='vertical'
+          size='large'
         >
           <Form.Item
             label="Username"
@@ -27,11 +41,38 @@ function OpenAccount() {
           </Form.Item>
 
           <Form.Item
-            wrapperCol={{
-              offset: 8,
-              span: 16,
-            }}
+            label="Email"
+            name="email"
+            rules={[
+              {
+                required: true,
+                type:'email',
+                message: 'Please input your email!',
+              },
+            ]}
           >
+            <Input />
+          </Form.Item>
+          
+          <Form.Item
+            name="phone"
+            label="Phone Number"
+            rules={[{ required: true, message: 'Please input your phone number!' }]}
+          >
+            <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+          </Form.Item>
+
+          <Form.Item
+            name="message"
+            label="Message"
+            rules={[{ required: true, message: 'Please input your message!' }]}
+          >
+            <TextArea rows={4} />
+            <br />
+            <br />
+          </Form.Item>
+
+          <Form.Item>
             <Button type="primary" htmlType="submit">
               Submit
             </Button>
